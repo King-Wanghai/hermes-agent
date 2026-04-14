@@ -2,15 +2,70 @@
 .git
 .gitignore
 .gitmodules
+.github
 
 # Dependencies
 node_modules
 .venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
 
-# CI/CD
-.github
+# Tests
+tests
+.pytest_cache
+.coverage
+htmlcov
+.tox
+.nox
+
+# Documentation
+docs
+*.md
+LICENSE
+
+# Web/Frontend (not needed for runtime)
+web
+website
+landingpage
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
 
 # Environment files
 .env
+.env.*
 
-*.md
+# User data directories (mounted at runtime)
+skills
+plans
+.plans
+
+# Build artifacts
+dist
+build
+*.egg-info
+hermes_agent.egg-info
+
+# Nix
+nix
+
+# Optional skills (large, install separately if needed)
+optional-skills
+
+# Assets and examples
+assets
+datagen-config-examples
+
+# Development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
