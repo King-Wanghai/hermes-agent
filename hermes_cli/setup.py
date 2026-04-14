@@ -99,6 +99,7 @@ _DEFAULT_PROVIDER_MODELS = {
     "zai": ["glm-5.1", "glm-5", "glm-4.7", "glm-4.5", "glm-4.5-flash"],
     "kimi-coding": ["kimi-k2.5", "kimi-k2-thinking", "kimi-k2-turbo-preview"],
     "kimi-coding-cn": ["kimi-k2.5", "kimi-k2-thinking", "kimi-k2-turbo-preview"],
+    "arcee": ["trinity-large-thinking", "trinity-large-preview", "trinity-mini"],
     "minimax": ["MiniMax-M2.7", "MiniMax-M2.5", "MiniMax-M2.1", "MiniMax-M2"],
     "minimax-cn": ["MiniMax-M2.7", "MiniMax-M2.5", "MiniMax-M2.1", "MiniMax-M2"],
     "ai-gateway": ["anthropic/claude-opus-4.6", "anthropic/claude-sonnet-4.6", "openai/gpt-5", "google/gemini-3-flash"],
@@ -775,7 +776,7 @@ def setup_model_provider(config: dict, *, quick: bool = False):
             "minimax": "MiniMax",
             "minimax-cn": "MiniMax CN",
             "anthropic": "Anthropic",
-            "ai-gateway": "AI Gateway",
+            "ai-gateway": "Vercel AI Gateway",
             "custom": "your custom endpoint",
         }
         _prov_display = _prov_names.get(selected_provider, selected_provider or "your provider")

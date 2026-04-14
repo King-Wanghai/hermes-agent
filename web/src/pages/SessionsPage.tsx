@@ -50,7 +50,7 @@ function SnippetHighlight({ snippet }: { snippet: string }) {
       parts.push(snippet.slice(last, match.index));
     }
     parts.push(
-      <mark key={i++} className="bg-warning/30 text-warning rounded-sm px-0.5">
+      <mark key={i++} className="bg-warning/30 text-warning px-0.5">
         {match[1]}
       </mark>
     );
@@ -77,7 +77,7 @@ function ToolCallBlock({ toolCall }: { toolCall: { id: string; function: { name:
   }
 
   return (
-    <div className="mt-2 rounded-md border border-warning/20 bg-warning/5">
+    <div className="mt-2 border border-warning/20 bg-warning/5">
       <button
         type="button"
         className="flex w-full items-center gap-2 px-3 py-2 text-xs text-warning cursor-pointer hover:bg-warning/10 transition-colors"
@@ -227,7 +227,7 @@ function SessionRow({
               )}
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className="truncate max-w-[180px]">{(session.model ?? "unknown").split("/").pop()}</span>
+              <span className="truncate max-w-[120px] sm:max-w-[180px]">{(session.model ?? "unknown").split("/").pop()}</span>
               <span className="text-border">&#183;</span>
               <span>{session.message_count} msgs</span>
               {session.tool_call_count > 0 && (
@@ -374,7 +374,7 @@ export default function SessionsPage() {
   return (
     <div className="flex flex-col gap-4">
       {/* Header outside card for lighter feel */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between">
         <div className="flex items-center gap-2">
           <MessageSquare className="h-5 w-5 text-muted-foreground" />
           <h1 className="text-base font-semibold">Sessions</h1>
@@ -382,7 +382,7 @@ export default function SessionsPage() {
             {total}
           </Badge>
         </div>
-        <div className="relative w-64">
+        <div className="relative w-full sm:w-64">
           {searching ? (
             <div className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 animate-spin rounded-full border-[1.5px] border-primary border-t-transparent" />
           ) : (
