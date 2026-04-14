@@ -90,8 +90,8 @@ COPY --from=builder --chown=hermes:hermes /opt/hermes/.playwright /opt/hermes/.p
 
 WORKDIR /opt/hermes
 
-# Install Node dependencies for whatsapp-bridge
-COPY scripts/whatsapp-bridge/package*.json ./scripts/whatsapp-bridge/
+# Copy and install Node dependencies for whatsapp-bridge
+COPY --chown=hermes:hermes scripts/whatsapp-bridge/ /opt/hermes/scripts/whatsapp-bridge/
 RUN cd scripts/whatsapp-bridge && \
     npm install --prefer-offline --no-audit && \
     npm cache clean --force
