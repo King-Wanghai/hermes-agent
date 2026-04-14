@@ -77,6 +77,7 @@ COPY --chown=hermes:hermes gateway/ /opt/hermes/gateway/
 COPY --chown=hermes:hermes cron/ /opt/hermes/cron/
 COPY --chown=hermes:hermes acp_adapter/ /opt/hermes/acp_adapter/
 COPY --chown=hermes:hermes scripts/ /opt/hermes/scripts/
+COPY --chown=hermes:hermes utils.py /opt/hermes/
 COPY --chown=hermes:hermes docker/ /opt/hermes/docker/
 COPY --chown=hermes:hermes run_agent.py /opt/hermes/
 COPY --chown=hermes:hermes model_tools.py /opt/hermes/
