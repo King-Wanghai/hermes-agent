@@ -90,10 +90,17 @@ COPY --from=builder --chown=hermes:hermes /opt/hermes/.playwright /opt/hermes/.p
 
 WORKDIR /opt/hermes
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    nodejs npm git && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install Node dependencies for whatsapp-bridge (scripts already copied above)
 RUN cd scripts/whatsapp-bridge && \
     npm install --prefer-offline --no-audit && \
-    npm cache clean --force
+    npm cache clean --force && \
+    apt-get purge -y --auto-remove git && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN chmod +x /opt/hermes/docker/entrypoint.sh
 
